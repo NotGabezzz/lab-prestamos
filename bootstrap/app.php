@@ -11,7 +11,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // nombre corto para usar en las rutas: ->middleware('rol:encargado')
+        $middleware->alias([
+            'rol' => \App\Http\Middleware\RolRequerido::class,
+        ]);
+
+        // si alguien ya inició sesión y entra a /login, lo mandamos al panel
+        $middleware->redirectUsersTo('/panel');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
