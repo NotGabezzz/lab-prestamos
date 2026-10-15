@@ -53,4 +53,4 @@
     @empty
         <div class="vacio">Aún no hay equipos registrados.</div>
     @endforelse
-@endsection
+@endsection{{-- Parte del companero cuatro --}}
