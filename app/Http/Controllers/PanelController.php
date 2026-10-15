@@ -36,4 +36,4 @@ class PanelController extends Controller
 
         return view('panel', compact('usuario', 'saludo', 'categorias', 'pendientes', 'enUso'));
     }
-}
+}// Parte del companero cuatro
