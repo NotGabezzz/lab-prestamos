@@ -51,4 +51,4 @@
             </table>
         </div>
     @endif
-@endsection{{-- Parte del companero cuatro --}}
+@endsection
