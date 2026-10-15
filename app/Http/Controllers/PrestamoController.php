@@ -68,4 +68,4 @@ class PrestamoController extends Controller
 
         return back()->with('ok', 'Devolución registrada.');
     }
-}
+}// Parte del companero cuatro
