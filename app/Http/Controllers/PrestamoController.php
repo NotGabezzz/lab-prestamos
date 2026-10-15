@@ -13,6 +13,7 @@ use Illuminate\View\View;
 
 class PrestamoController extends Controller
 {
+    // historial completo: el más reciente arriba, con equipo, estudiante y encargado
     public function index(): View
     {
         $prestamos = Prestamo::with(['equipo', 'estudiante', 'encargado'])
@@ -55,6 +56,8 @@ class PrestamoController extends Controller
             : back()->with('error', 'Ese equipo ya está prestado.');
     }
 
+    // devolver: cierra el préstamo con la fecha de hoy y deja el equipo disponible
+    // (las dos cosas van juntas en una transacción, o se hacen las dos o ninguna)
     public function devolver(Prestamo $prestamo): RedirectResponse
     {
         if ($prestamo->fecha_devolucion) {
@@ -68,4 +71,4 @@ class PrestamoController extends Controller
 
         return back()->with('ok', 'Devolución registrada.');
     }
-}// Parte del companero cuatro
+}

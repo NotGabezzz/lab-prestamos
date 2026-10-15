@@ -26,6 +26,8 @@ class PanelController extends Controller
             ->orderBy('categoria')
             ->get();
 
+        // el panel cambia según el rol: el encargado ve solicitudes por revisar,
+        // el estudiante ve sus solicitudes pendientes y los equipos que tiene en uso
         if ($usuario->esEncargado()) {
             $pendientes = Solicitud::pendientes()->count();
             $enUso = 0;
@@ -36,4 +38,4 @@ class PanelController extends Controller
 
         return view('panel', compact('usuario', 'saludo', 'categorias', 'pendientes', 'enUso'));
     }
-}// Parte del companero cuatro
+}
